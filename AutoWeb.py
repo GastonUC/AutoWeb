@@ -11,6 +11,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
+print("something just to see github stufs")
+
 PATH = "/Users/Gacox/Desktop/AutoWeb/chromedriver"
 
 url = input("Ingrese la url: ")
