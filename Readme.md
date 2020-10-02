@@ -28,6 +28,7 @@ luego hacer click en siguiente imágen, descargar, verificación, siguiente, des
 ### Datos útiles:
 - "import urllib" Para descargas de links
 - ".isalnum()" Para eliminar caracteres especiales
+- Para clicks en background: https://forum.uipath.com/t/can-we-have-web-automation-working-in-background/122402/2
 
 ## Listado para Testear
 
