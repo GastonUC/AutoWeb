@@ -11,8 +11,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
-print("something just to see github stufs")
-
 PATH = "/Users/Gacox/Desktop/AutoWeb/chromedriver"
 
 url = input("Ingrese la url: ")
@@ -50,8 +48,8 @@ except:
 
 # count = driver.find_elements(By.XPATH, "//li[@data-slide='1']/a")
 count = driver.find_elements(By.XPATH, "//li[@class='slide']/a")
-asd = len(count)
-print(asd)
+contador = len(count)
+# print(contador)
 
 #def obtencionImagenes():
 # try:
@@ -80,5 +78,16 @@ print(asd)
 # except:
 #     print("link no encontrado")
 #     driver.quit()
+
+try:
+    for x in range(contador):
+        img = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/a"))
+        )
+        print(x+1)
+except:
+    print("It didn't work")
+    driver.quit()
+        
 
 driver.quit()
