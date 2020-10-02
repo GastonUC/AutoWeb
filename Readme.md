@@ -1,13 +1,13 @@
 # AutoWeb
 Automatización Descarga de imágenes y obtención de datos de la página "Seminuevos"
 
-Primeros Avances:
+### Primeros Avances:
 * [x] Obtención del Modelo del Auto.
 * [x] Obtención del precio.
 * [x] Obtención de la descripción.
 * [x] Obtención de una imágen.
 
-Pasos siguientes:
+### Pasos siguientes:
 * [ ] Crear contador para imágenes.
 * [ ] Crear ciclo para la descarga de todas las imágenes.
 * [ ] Crear funciones para poder manejar todo en "main.py".
@@ -25,7 +25,7 @@ Ciclo al descargar
 Click y descargar en imágen principal, verificar si es igual a la anterior, de otro modo,
 luego hacer click en siguiente imágen, descargar, verificación, siguiente, descargar...
 
-Datos útiles:
+### Datos útiles:
 - "import urllib" Para descargas de links
 - ".isalnum()" Para eliminar caracteres especiales
 
