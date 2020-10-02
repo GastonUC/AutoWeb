@@ -49,12 +49,12 @@ except:
 # count = driver.find_elements(By.XPATH, "//li[@data-slide='1']/a")
 count = driver.find_elements(By.XPATH, "//li[@class='slide']/a")
 contador = len(count)
-# print(contador)
+print(contador)
 
 #def obtencionImagenes():
 # try:
 #     img = WebDriverWait(driver, 5).until(
-#         EC.presence_of_element_located((By.XPATH, "//li[@data-slide='2']/a"))
+#         EC.presence_of_element_located((By.XPATH, "//li[@data-slide='1']/a"))
 #     )
 #     actions = ActionChains(driver)
 #     actions.move_to_element(img)
@@ -81,12 +81,31 @@ contador = len(count)
 
 try:
     for x in range(contador):
-        img = WebDriverWait(driver, 5).until(
+        img = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/a"))
         )
-        print(x+1)
+        actions = ActionChains(driver)
+        actions.move_to_element(img)
+        actions.context_click(img)
+        actions.perform()
+        for z in range(7):
+            pyautogui.press('down')
+        pyautogui.press('enter')
+        time.sleep(1) #Espera a que cargue el pop-up
+
+        fileName = modelo.text #arreglar
+        fName = ""
+
+        for character in fileName:
+            if character.isalnum():
+                fName += character
+        pyautogui.write(fName+" "+str(x+1))
+        pyautogui.press('enter')
+
+        time.sleep(1)
+        print("Imagen "+str(x+1)+" guardada.")
 except:
-    print("It didn't work")
+    print("Elemento no encontrado")
     driver.quit()
         
 
