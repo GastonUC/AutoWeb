@@ -8,8 +8,9 @@ Automatización Descarga de imágenes y obtención de datos de la página "Semin
 * [x] Obtención de una imágen.
 
 ### Pasos siguientes:
-* [ ] Crear contador para imágenes.
-* [ ] Crear ciclo para la descarga de todas las imágenes.
+* [x] Crear contador para imágenes.
+* [x] Crear ciclo para la descarga de todas las imágenes.
+* [ ] Encontrar forma de imprimir números en el cual el '1' va al medio.
 * [ ] Crear funciones para poder manejar todo en "main.py".
 * [ ] Crear archivos separados incluyendo un "Main" para ejecución de ciclos, etc.
 * [ ] Creación de carpeta general de lista con nombre "Autos" + fecha del sistema. (El path debería de ser /AutosSeminuevos/Autos x.x.x)
