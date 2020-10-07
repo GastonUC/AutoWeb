@@ -36,3 +36,7 @@ pos[posF] = pos2
 
 print("Array with second item sorted:")
 print(pos)
+
+## Páginas abiertas:
+# -https://www.geeksforgeeks.org/sort-the-array-in-a-given-index-range/
+# -
