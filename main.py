@@ -2,7 +2,7 @@
 import math
 
 
-var = 9
+var = 4
 pos = []
 
 for x in range(var):
