@@ -79,10 +79,28 @@ print(contador)
 #     print("link no encontrado")
 #     driver.quit()
 
+
+if(contador == 3):
+    ar = [3,1,2]
+elif(contador == 4):
+    ar = [4,1,2,3]
+elif(contador == 5):
+    ar = [4,5,1,2,3]
+elif(contador == 6):
+    ar = [5,6,1,2,3,4]
+elif(contador == 7):
+    ar = [5,6,7,1,2,3,4]
+elif(contador == 8):
+    ar = [6,7,8,1,2,3,4,5]
+elif(contador == 9):
+    ar = [6,7,8,9,1,2,3,4,5]
+else:
+    print("Error, please check the code.")
+
 try:
     for x in range(contador):
         img = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/a"))
+            EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+ar[0]+"']/a"))
         )
         actions = ActionChains(driver)
         actions.move_to_element(img)
