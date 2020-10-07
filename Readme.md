@@ -20,6 +20,10 @@ Automatización Descarga de imágenes y obtención de datos de la página "Semin
 * [ ] Guardado de Info en txt.
 * [ ] Guardado de Imágenes en carpeta.
 
+### Llegando a la perfeccion:
+* [ ] Añadir funciones para Yapo.cl.
+* [ ] Ampliar espectro a casas, partiendo por Arecheta.
+
 
 
 Ciclo al descargar
