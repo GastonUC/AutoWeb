@@ -5,13 +5,14 @@ import time #Just for the sleep, then maybe erase it
 import pyautogui
 
 from selenium import webdriver
+from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
-PATH = "/Users/Gacox/Desktop/AutoWeb/chromedriver"
+PATH = "/Users/Win10Pro/Documents/AutoWeb/chromedriver"
 
 url = input("Ingrese la url: ")
 
@@ -100,14 +101,15 @@ else:
 try:
     for x in range(contador):
         img = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+ar[0]+"']/a"))
+            EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(ar[x])+"']/img"))
         )
         actions = ActionChains(driver)
         actions.move_to_element(img)
         actions.context_click(img)
         actions.perform()
-        for z in range(7):
-            pyautogui.press('down')
+        # for z in range(7):
+        #     pyautogui.press('down')
+        pyautogui.press('down', presses=7) #presses equivale al total de veces que presionara la KEY
         pyautogui.press('enter')
         time.sleep(1) #Espera a que cargue el pop-up
 
