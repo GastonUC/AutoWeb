@@ -32,7 +32,7 @@ try:
 except:
     print("No se ha encontrado el modelo del auto ingresado.")
 
-#def getPrecio():
+#def getPrecio() ah:
 try:
     price = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CLASS_NAME, "price"))

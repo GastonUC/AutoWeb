@@ -37,3 +37,13 @@ Automatización Descarga de imágenes y obtención de datos de la página "Semin
 * http://seminuevosmag.cl/car/hyundai-2014/
 * http://seminuevosmag.cl/car/ssangyong-2017/
 * http://seminuevosmag.cl/car/hyundai-2019/
+
+http://seminuevosmag.cl/car/chevrolet/,
+http://seminuevosmag.cl/car/mazda-2015/,
+http://seminuevosmag.cl/car/nissan-2018/,
+http://seminuevosmag.cl/car/hyundai-2017/,
+http://seminuevosmag.cl/car/hyundai-2014/,
+http://seminuevosmag.cl/car/ssangyong-2017/,
+http://seminuevosmag.cl/car/hyundai-2019/
+
+http://seminuevosmag.cl/car/chevrolet/ http://seminuevosmag.cl/car/mazda-2015/ http://seminuevosmag.cl/car/nissan-2018/ http://seminuevosmag.cl/car/hyundai-2017/ http://seminuevosmag.cl/car/hyundai-2014/ http://seminuevosmag.cl/car/ssangyong-2017/ http://seminuevosmag.cl/car/hyundai-2019/
