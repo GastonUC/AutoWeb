@@ -25,8 +25,8 @@ print("La cantidad de url Ingresadas: "+str(cant))
 driver = webdriver.Chrome(PATH)
 
 for x in range(cant):
-    #Ejecuta el driver con la url entregada por el usuario anteriormente.
     print("URL: "+urls[x]) #Debugging purposes
+    #Ejecuta el driver con la url entregada por el usuario anteriormente.
     driver.get(urls[x])
 
 
@@ -52,7 +52,6 @@ for x in range(cant):
     try:
         descripcion = WebDriverWait(driver, 5).until(
             EC.presence_of_element_located((By.XPATH, "//div[@class='col-md-12']/p"))
-            #Otherwise /html/body/div/div/div/div/div/div/main/article/div/div/p
         )
         print("Descripcion: "+descripcion.text)
     except:
@@ -62,31 +61,11 @@ for x in range(cant):
     count = driver.find_elements(By.XPATH, "//li[@class='slide']/a")
     #Guarda la cantidad de imagenes encontradas.
     contador = len(count)
-    #print(contador) #Para motivos Debug.
-
-
-    # if(contador == 3):
-    #     ar = [3,1,2]
-    # elif(contador == 4):
-    #     ar = [4,1,2,3]
-    # elif(contador == 5):
-    #     ar = [4,5,1,2,3]
-    # elif(contador == 6):
-    #     ar = [5,6,1,2,3,4]
-    # elif(contador == 7):
-    #     ar = [5,6,7,1,2,3,4]
-    # elif(contador == 8):
-    #     ar = [6,7,8,1,2,3,4,5]
-    # elif(contador == 9):
-    #     ar = [6,7,8,9,1,2,3,4,5]
-    # else:
-    #     print("Error, please check the code.")
 
     try:
         for x in range(contador):
             try:
                 img = WebDriverWait(driver, 10).until(
-                    #EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(ar[x])+"']/img"))
                     #Realiza busqueda de Imagen en Miniatura.
                     EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/img"))
                 )
@@ -114,8 +93,6 @@ for x in range(cant):
             actions.perform()
             actions.reset_actions()
             time.sleep(1)
-            # for z in range(7):
-            #     pyautogui.press('down')
             pyautogui.press('down', presses=8) #presses equivale al total de veces que presionara la KEY
             pyautogui.press('enter')
             time.sleep(1) #Espera a que cargue el pop-up
