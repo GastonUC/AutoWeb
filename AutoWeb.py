@@ -16,117 +16,123 @@ from selenium.webdriver.common.action_chains import ActionChains
 PATH = "/Users/Win10Pro/Documents/AutoWeb/chromedriver"
 
 #El usuario debe ingresar la url a utilizar.
-url = input("Ingrese la url: ")
+#url = input("Ingrese la url: ")
+urls = list(map(str, input("Ingrese las url: ").split()))
+cant = len(urls)
+print("La cantidad de url Ingresadas: "+str(cant))
 
 #Reconoce el archivo del driver y lo almacena en la variable 'driver'
 driver = webdriver.Chrome(PATH)
-#Ejecuta el driver con la url entregada por el usuario anteriormente.
-driver.get(url)
 
-#def getModelo():
-try:
-    modelo = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.CLASS_NAME, "section-title"))
-    )
-    print("Modelo: "+modelo.text)
-except:
-    print("No se ha encontrado el modelo del auto ingresado.")
-
-#def getPrecio() ah:
-try:
-    price = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.CLASS_NAME, "price"))
-    )
-    print("Precio: "+price.text)
-except:
-    print("No se ha encontrado el precio del modelo ingresado.")
-
-#def getDescripcion():
-try:
-    descripcion = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.XPATH, "//div[@class='col-md-12']/p"))
-        #Otherwise /html/body/div/div/div/div/div/div/main/article/div/div/p
-    )
-    print("Descripcion: "+descripcion.text)
-except:
-    print("No se ha encontrado la descripcion del modelo ingresado.")
-
-#Se realiza una busqueda para todas las imagenes que tenga la clase 'slide' dentro de la pagina.
-count = driver.find_elements(By.XPATH, "//li[@class='slide']/a")
-#Guarda la cantidad de imagenes encontradas.
-contador = len(count)
-#print(contador) #Para motivos Debug.
+for x in range(cant):
+    #Ejecuta el driver con la url entregada por el usuario anteriormente.
+    print("URL: "+urls[x]) #Debugging purposes
+    driver.get(urls[x])
 
 
-# if(contador == 3):
-#     ar = [3,1,2]
-# elif(contador == 4):
-#     ar = [4,1,2,3]
-# elif(contador == 5):
-#     ar = [4,5,1,2,3]
-# elif(contador == 6):
-#     ar = [5,6,1,2,3,4]
-# elif(contador == 7):
-#     ar = [5,6,7,1,2,3,4]
-# elif(contador == 8):
-#     ar = [6,7,8,1,2,3,4,5]
-# elif(contador == 9):
-#     ar = [6,7,8,9,1,2,3,4,5]
-# else:
-#     print("Error, please check the code.")
+    #def getModelo():
+    try:
+        modelo = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "section-title"))
+        )
+        print("Modelo: "+modelo.text)
+    except:
+        print("No se ha encontrado el modelo del auto ingresado.")
 
-try:
-    for x in range(contador):
-        try:
-            img = WebDriverWait(driver, 10).until(
-                #EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(ar[x])+"']/img"))
-                #Realiza busqueda de Imagen en Miniatura.
-                EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/img"))
-            )
-        except:
-            print("Imagen Miniatura no encontrada.")
-            driver.quit()
+    #def getPrecio():
+    try:
+        price = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "price"))
+        )
+        print("Precio: "+price.text)
+    except:
+        print("No se ha encontrado el precio del modelo ingresado.")
 
-        actions = ActionChains(driver)
-        actions.move_to_element(img)
-        actions.click(img)
-        actions.perform()
-        actions.reset_actions()
+    #def getDescripcion():
+    try:
+        descripcion = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, "//div[@class='col-md-12']/p"))
+            #Otherwise /html/body/div/div/div/div/div/div/main/article/div/div/p
+        )
+        print("Descripcion: "+descripcion.text)
+    except:
+        print("No se ha encontrado la descripcion del modelo ingresado.")
 
-        try:
-            img2 = WebDriverWait(driver, 10).until(
-                #Realiza busqueda de Imagen en Grande.
-                EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/a[@class='single-image fancybox']/img"))
-            )
-        except:
-            print("Imagen Normal no encontrada.")
-            driver.quit()
+    #Se realiza una busqueda para todas las imagenes que tenga la clase 'slide' dentro de la pagina.
+    count = driver.find_elements(By.XPATH, "//li[@class='slide']/a")
+    #Guarda la cantidad de imagenes encontradas.
+    contador = len(count)
+    #print(contador) #Para motivos Debug.
 
-        actions.move_to_element(img2)
-        actions.context_click(img2)
-        actions.perform()
-        actions.reset_actions()
-        time.sleep(1)
-        # for z in range(7):
-        #     pyautogui.press('down')
-        pyautogui.press('down', presses=8) #presses equivale al total de veces que presionara la KEY
-        pyautogui.press('enter')
-        time.sleep(1) #Espera a que cargue el pop-up
 
-        fileName = modelo.text #arreglar
-        fName = ""
+    # if(contador == 3):
+    #     ar = [3,1,2]
+    # elif(contador == 4):
+    #     ar = [4,1,2,3]
+    # elif(contador == 5):
+    #     ar = [4,5,1,2,3]
+    # elif(contador == 6):
+    #     ar = [5,6,1,2,3,4]
+    # elif(contador == 7):
+    #     ar = [5,6,7,1,2,3,4]
+    # elif(contador == 8):
+    #     ar = [6,7,8,1,2,3,4,5]
+    # elif(contador == 9):
+    #     ar = [6,7,8,9,1,2,3,4,5]
+    # else:
+    #     print("Error, please check the code.")
 
-        for character in fileName:
-            if character.isalnum():
-                fName += character
-        pyautogui.write(fName+" "+str(x+1))
-        pyautogui.press('enter')
+    try:
+        for x in range(contador):
+            try:
+                img = WebDriverWait(driver, 10).until(
+                    #EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(ar[x])+"']/img"))
+                    #Realiza busqueda de Imagen en Miniatura.
+                    EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/img"))
+                )
+            except:
+                print("Imagen Miniatura no encontrada.")
+                driver.quit()
 
-        time.sleep(1)
-        print("Imagen N"+str(x+1)+" guardada.")
-except:
-    print("Elemento no encontrado")
-    driver.quit()
-        
+            actions = ActionChains(driver)
+            actions.move_to_element(img)
+            actions.click(img)
+            actions.perform()
+            actions.reset_actions()
+
+            try:
+                img2 = WebDriverWait(driver, 10).until(
+                    #Realiza busqueda de Imagen en Grande.
+                    EC.presence_of_element_located((By.XPATH, "//li[@data-slide='"+str(x+1)+"']/a[@class='single-image fancybox']/img"))
+                )
+            except:
+                print("Imagen Normal no encontrada.")
+                driver.quit()
+
+            actions.move_to_element(img2)
+            actions.context_click(img2)
+            actions.perform()
+            actions.reset_actions()
+            time.sleep(1)
+            # for z in range(7):
+            #     pyautogui.press('down')
+            pyautogui.press('down', presses=8) #presses equivale al total de veces que presionara la KEY
+            pyautogui.press('enter')
+            time.sleep(1) #Espera a que cargue el pop-up
+
+            fileName = modelo.text #arreglar
+            fName = ""
+
+            for character in fileName:
+                if character.isalnum():
+                    fName += character
+            pyautogui.write(fName+" "+str(x+1))
+            pyautogui.press('enter')
+
+            time.sleep(1)
+            print("Imagen N"+str(x+1)+" guardada.")
+    except:
+        print("Elemento no encontrado")
+        driver.quit()
 print("Proceso finalizado con exito.")
 driver.quit()
