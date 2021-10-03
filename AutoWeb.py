@@ -2,6 +2,7 @@
 
 import os
 import time #Just for the sleep, then maybe erase it
+import datetime
 import pyautogui
 
 from selenium import webdriver
@@ -12,8 +13,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
+#Se guarda en la variable 'date' la fecha local
+date = datetime.datetime.now().strftime("%d.%m.%y")
+
 #Cambiar de acuerdo al PATH actual del archivo "chromedriver"
-PATH = "/Users/Win10Pro/Documents/AutoWeb/chromedriver"
+PATH = "/Users/PbmEditor/Documents/Vscode/AutoWeb/chromedriver"
 
 #El usuario debe ingresar la url a utilizar.
 #url = input("Ingrese la url: ")
@@ -23,6 +27,9 @@ print("La cantidad de url Ingresadas: "+str(cant))
 
 #Reconoce el archivo del driver y lo almacena en la variable 'driver'
 driver = webdriver.Chrome(PATH)
+
+#Crea un txt
+open(f"Texto Autos {date}.txt", "x")
 
 for x in range(cant):
     print("URL: "+urls[x]) #Debugging purposes
@@ -56,6 +63,11 @@ for x in range(cant):
         print("Descripcion: "+descripcion.text)
     except:
         print("No se ha encontrado la descripcion del modelo ingresado.")
+
+    #Abre el txt creado anteriormente y le agrega la informacion obtenida de la pagina. 
+    with open("Texto Autos " + date, "a") as txt:
+        txt.write("Precio: " + price.text + "\n" + "Descripcion: " + descripcion.text + "\n")
+    print("Insercion de datos en txt Finalizada.")
 
     #Se realiza una busqueda para todas las imagenes que tenga la clase 'slide' dentro de la pagina.
     count = driver.find_elements(By.XPATH, "//li[@class='slide']/a")
