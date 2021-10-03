@@ -65,8 +65,8 @@ for x in range(cant):
         print("No se ha encontrado la descripcion del modelo ingresado.")
 
     #Abre el txt creado anteriormente y le agrega la informacion obtenida de la pagina. 
-    with open("Texto Autos " + date, "a") as txt:
-        txt.write("Precio: " + price.text + "\n" + "Descripcion: " + descripcion.text + "\n")
+    with open(f"Texto Autos {date}.txt", "a") as txt:
+        txt.write("Precio: " + price.text + "\n" + "Descripcion: " + descripcion.text + "\n" + "\n")
     print("Insercion de datos en txt Finalizada.")
 
     #Se realiza una busqueda para todas las imagenes que tenga la clase 'slide' dentro de la pagina.
