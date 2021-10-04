@@ -1,4 +1,5 @@
 import os
+import time
 import datetime
 import pyautogui
 
@@ -63,9 +64,9 @@ for x in range(cant):
                 point = WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.XPATH, "//li/a[text()='" + str(x+1) + "']"))
                 )
-                print("imagen encontrada")
+                print("Punto encontrado")
             except:
-                print("Imagen no encontrada.")
+                print("Punto no encontrada.")
                 driver.quit()
 
             actions = ActionChains(driver)
@@ -74,8 +75,30 @@ for x in range(cant):
             actions.perform()
             actions.reset_actions()
 
-            print("Va en punto " + x+1)
+            try:
+                img = WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, "//li[@class='flex-active-slide']"))
+                )
+                print("Imagen encontrada")
+            except:
+                print("Imagen no encontrada.")
+                driver.quit()
+
+            actions.move_to_element(img)    
+            actions.context_click(img)
+            actions.perform()
+            actions.reset_actions()
+            time.sleep(1)
+            pyautogui.press('down', presses=8)
+            pyautogui.press('enter')
+            time.sleep(1)
+            
+            pyautogui.press('enter')
+
+            time.sleep(1)
+            print("Imagen guardada.")
     except:
-        print()
+        print("Elemento no encontrado")
+        driver.quit()
 
 driver.quit()
