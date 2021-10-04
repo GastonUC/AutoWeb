@@ -39,7 +39,7 @@ for x in range(cant):
         precio = WebDriverWait(driver, 5).until(
             EC.presence_of_element_located((By.CLASS_NAME, "single-property-price"))
         )
-        print("Sector: " + precio.text)
+        print("Precio: " + precio.text)
     except:
         print("No se ha encontrado el Precio.")
 
@@ -64,7 +64,6 @@ for x in range(cant):
                 point = WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.XPATH, "//li/a[text()='" + str(x+1) + "']"))
                 )
-                print("Punto encontrado")
             except:
                 print("Punto no encontrada.")
                 driver.quit()
@@ -79,7 +78,6 @@ for x in range(cant):
                 img = WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.XPATH, "//li[@class='flex-active-slide']"))
                 )
-                print("Imagen encontrada")
             except:
                 print("Imagen no encontrada.")
                 driver.quit()
@@ -93,12 +91,20 @@ for x in range(cant):
             pyautogui.press('enter')
             time.sleep(1)
             
+            fileName = sector.text
+            fName = ""
+
+            for character in fileName:
+                if character.isalnum():
+                    fName += character
+            pyautogui.write(fName + " " + str(x+1))
             pyautogui.press('enter')
 
             time.sleep(1)
-            print("Imagen guardada.")
+            print(f"Imagen N{str(x+1)} guardada.")
     except:
         print("Elemento no encontrado")
         driver.quit()
 
+print("Proceso finalizado con éxito.")
 driver.quit()
