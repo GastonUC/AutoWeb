@@ -47,3 +47,5 @@ http://seminuevosmag.cl/car/ssangyong-2017/,
 http://seminuevosmag.cl/car/hyundai-2019/
 
 http://seminuevosmag.cl/car/chevrolet/ http://seminuevosmag.cl/car/mazda-2015/ http://seminuevosmag.cl/car/nissan-2018/ http://seminuevosmag.cl/car/hyundai-2014/ http://seminuevosmag.cl/car/ssangyong-2017/ http://seminuevosmag.cl/car/hyundai-2019/
+
+https://romapropiedades.cl/property/inmueble-central/ https://romapropiedades.cl/property/sector-las-cumbres-km-10-norte-poniente/ https://romapropiedades.cl/property/inmueble-sector-norte-pobl-mauricio-braun/ https://romapropiedades.cl/property/sitio-y-tres-cabanas-sector-sur/ https://romapropiedades.cl/property/sector-sur-portal-del-sur/ https://romapropiedades.cl/property/sitio-de-en-1300m2-prolongacion-mardones/ https://romapropiedades.cl/property/propiedad-ubicada-en-brisas-de-agostini/ https://romapropiedades.cl/property/parcela-sector-sur-poniente/ https://romapropiedades.cl/property/parcela-de-8400m2-ojo-bueno/ https://romapropiedades.cl/property/inmueble-sector-sur-poniente/
