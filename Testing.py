@@ -37,6 +37,42 @@ pos[posF] = pos2
 print("Array with second item sorted:")
 print(pos)
 
+### First way to download images
+
+import requests
+
+response = requests.get("https://www.propiedadesarecheta.cl/wp-content/uploads/2022/03/SAM_2527-Large.jpg")
+file = open("sample-image.jpg", "wb")
+file.write(response.content)
+file.close
+
+###
+### Second way to download images
+
+import subprocess
+
+def runcmd(cmd, verbose = False, *args, **kwargs):
+
+    process = subprocess.Popen(
+        cmd,
+        stdout = subprocess.PIPE,
+        stderr = subprocess.PIPE,
+        text = True,
+        shell = True
+    )
+    std_out, std_err = process.communicate()
+    if verbose:
+        print(std_out.strip(), std_err)
+    pass
+
+runcmd('echo "Hello, World!"', verbose = True)
+
+# runcmd("wget https://www.scrapingbee.com/images/logo-small.png", verbose = True) #Example
+runcmd("curl https://www.propiedadesarecheta.cl/wp-content/uploads/2022/03/SAM_2527-Large.jpg > ~/Downloads/image1.jpg")
+
+###
+
+
 ## Páginas abiertas:
 # -https://www.geeksforgeeks.org/sort-the-array-in-a-given-index-range/
 # -

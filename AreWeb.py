@@ -16,16 +16,6 @@ driver = webdriver.Safari()
 driver.get("https://www.propiedadesarecheta.cl/propiedades/calle-zenteno-cerro-primavera/")
 # driver.get("https://www.propiedadesarecheta.cl/propiedades/depto-4o-piso-condominio-san-ignacio-1/")
 
-# try:
-#     img = driver.find_element(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a")
-#     actions = ActionChains(driver)
-#     actions.click(img)
-#     actions.perform()
-#     actions.reset_actions()
-#     driver.close()
-# except Exception as e:
-#     print(f"Error: {e}")
-#     driver.close()
 
 time.sleep(10)
 
@@ -43,7 +33,7 @@ actions1.click(close_btn)
 actions1.perform()
 actions1.reset_actions()
 
-# name = driver.find_element(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a/img")
+
 name = driver.find_element(By.XPATH, "//div[@class='page-title']/h1")
 print(name.text)
 
@@ -82,17 +72,5 @@ driver.quit()
 # for elements in driver.find_elements(By.XPATH, "//div/div[@data-slick-index='0']/img"):
 #     print(elements.text)
 
-# try:
-#     driver.get("https://www.propiedadesarecheta.cl")
-#     print("Visitado con Exito.")
-
-#     driver.close()
-# except Exception as e:
-#     print(e)
-#     driver.close()
-
-    
 # makes the browser wait if it can't find an element
 # browser.implicitly_wait(10)
-
-# Recordar que tengo dos soluciones, agregar un numero al total de links obtenidos, y luego es agregar una segunda busqueda para la imagen faltante que es de index 0
