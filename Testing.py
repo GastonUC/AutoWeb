@@ -37,12 +37,16 @@ pos[posF] = pos2
 print("Array with second item sorted:")
 print(pos)
 
+
+# makes the browser wait if it can't find an element
+# browser.implicitly_wait(10)
+
 ### First way to download images
 
 import requests
 
 response = requests.get("https://www.propiedadesarecheta.cl/wp-content/uploads/2022/03/SAM_2527-Large.jpg")
-file = open("sample-image.jpg", "wb")
+file = open("example/sample-image.jpg", "wb")
 file.write(response.content)
 file.close
 

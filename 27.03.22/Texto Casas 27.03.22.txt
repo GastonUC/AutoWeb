@@ -1,0 +1,8 @@
+Nombre: Depto 4º Piso Condominio San Ignacio 1 
+ Precio: $400.000/Mensuales 
+ Descripción: Departamento en 4º Piso ubicado en Condominio San Ignacio 1 en la Calle Oceano Pacifico, consta de 3 Dormitorios, 1 Baño, Cocina, Loggia , Living Comedor, con calentadores, en muy buen estado. 
+
+Nombre: Calle Zenteno Cerro Primavera 
+ Precio: $133.000.000/Millones de Pesos 
+ Descripción: Acogedora propiedad ubicada en calle Zenteno Sector Sur en Cerro Primavera , en muy buen estado, consta de 3 Dormitorios, 1 Baño, cocina, Living, Comedor , entrada de vehiculos, patio, bodega. 
+
