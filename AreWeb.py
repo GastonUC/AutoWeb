@@ -84,7 +84,7 @@ for x in range(links):
                 file = open(f"{date}/Propiedad {str(x+1)}/{name.text} {str(y+1)}.jpg", "wb")
                 file.write(response)
                 file.close
-                print(f"Imágen {y+1} guardad con éxito")
+                print(f"Imágen {y+1} guardada con éxito")
             except Exception as e:
                 print(f"Element not found, {str(e)}")
                 driver.close()
