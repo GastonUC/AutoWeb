@@ -62,7 +62,7 @@ for x in range(links):
                 print(f"Element not found, {e}")
                 driver.close()
     except Exception as e:
-        print(f"Error trying to get Images: {e}")
+        print(f"Error trying to get Images, {e}")
         driver.close()
 print("Finalizado con éxito!")
 driver.quit()
