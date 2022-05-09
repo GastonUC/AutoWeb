@@ -1,32 +1,26 @@
-# AutoWeb
+# AutoWeb / AreWeb / RomaWeb
 Automatización Descarga de imágenes y obtención de datos de la página "Seminuevos"
 
-### Primeros Avances:
-* [x] Obtención del Modelo del Auto.
-* [x] Obtención del precio.
-* [x] Obtención de la descripción.
-* [x] Obtención de una imágen.
-
 ### Pasos siguientes:
-* [x] Crear contador para imágenes.
-* [x] Crear ciclo para la descarga de todas las imágenes.
 * [ ] Crear funciones para poder manejar todo en "main.py".
 * [ ] Crear archivos separados incluyendo un "Main" para ejecución de ciclos, etc.
-* [ ] Creación de carpeta general de lista con nombre "Autos" + fecha del sistema. (El path debería de ser /AutosSeminuevos/Autos x.x.x)
-* [x] Creación de ciclo para una lista de URL.
 * [ ] Posiblemente hacer una pequeña UI para el ingreso de URL.
-* [ ] Creación de Carpeta con modelo del auto.
-* [ ] Guardado de Info en txt.
-* [ ] Guardado de Imágenes en carpeta.
+* [x] Creación de carpeta general de lista con nombre "Autos" + fecha del sistema. (El path debería de ser /AutosSeminuevos/Autos x.x.x)
+* [x] Crear contador para imágenes.
+* [x] Crear ciclo para la descarga de todas las imágenes.
+* [x] Creación de ciclo para una lista de URL.
+* [x] Creación de Carpeta con modelo del auto.
+* [x] Guardado de Info en txt.
+* [x] Guardado de Imágenes en carpeta.
 
-### Agregando mas funciones:
+### Extras:
 * [ ] Añadir funciones para Yapo.cl.
-* [ ] Ampliar a casas, partiendo por Arecheta.
+* [x] Ampliar a casas, partiendo por Arecheta.
 
 ### Datos útiles:
-- "import urllib" Para descargas de links
 - ".isalnum()" Para eliminar caracteres especiales
-- Para clicks en background: https://forum.uipath.com/t/can-we-have-web-automation-working-in-background/122402/2
+- ~~"import urllib" Para descargas de links~~ (Outdated)
+- ~~Para clicks en background: https://forum.uipath.com/t/can-we-have-web-automation-working-in-background/122402/2~~ (Outdated)
 
 ## Listado para Testear
 
