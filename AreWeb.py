@@ -51,6 +51,7 @@ for x in range(links):
             try:
                 #Gets Url from images
                 url = driver.find_element(By.XPATH, "//div[@data-slick-index='" + str(y) + "']/img[@class='img-fluid']").get_attribute("src")
+                print(f"Link de la imagen {url}")
 
                 #fetch the content from the url and returns it in bytes. (Binary Response content)
                 response = requests.get(url).content
