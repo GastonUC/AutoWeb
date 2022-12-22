@@ -22,16 +22,25 @@ def Image_counter():
 
 print(Image_counter())
 
+name = driver.find_element(By.XPATH, "//div[@class='page-title']/h1")
+
 url = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a/img")
 inc = 0
 try:
     for y in url:
         link = y.get_attribute("data-src")
         inc += 1
-        print(link)
+
+        response = requests.get(link).content
+        #Header is mandatory here because the page won't allow to do more than one request for anonymous authentication. So insted, here i pass a Default MDN string.
+        # response = requests.get(link, headers={"User-Agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}).content
+        file = open(f"{name.text} {inc}.jpg", "wb")
+        file.write(response)
+        file.close
+        print(f"url: {link}")
 except Exception as e:
     print("Error obteniendo url de imagenes")
-    driver.close()
+    driver.quit()
 
 
 # url = driver.find_element(By.XPATH, "//a[@class='houzez-trigger-popup-slider-js swipebox hover-effect']").get_attribute("data-toggle¿")
