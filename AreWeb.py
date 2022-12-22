@@ -12,20 +12,54 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Safari()
+driver.get(input("Write URL: "))
 
-#Counter for total images
+# Counter for total images
 def Image_counter():
     img = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']")
     Img_count = len(img)
-    return Img_count + 1
+    return Img_count
 
 print(Image_counter())
+
+url = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a/img")
+inc = 0
+try:
+    for y in url:
+        link = y.get_attribute("data-src")
+        inc += 1
+        print(link)
+except Exception as e:
+    print("Error obteniendo url de imagenes")
+    driver.close()
+
+
 # url = driver.find_element(By.XPATH, "//a[@class='houzez-trigger-popup-slider-js swipebox hover-effect']").get_attribute("data-toggle¿")
 # url1 = driver.find_element(By.XPATH, "//a[@data-slider-no='1']/img")
 # url1.value_of_css_property("src")
 # print(url)
 
-print(driver.execute_script("return window.getComputedStyle(document.querySelector('a.1'),':before').getPropertyValue('content')").strip)
+# time to wait
+# Pop-up_eraser = driver.find_elements(By.XPATH, "//i[@class='spu-icon spu-icon-close']")
+# Pop-up_eraser.click()
+
+
+### Section to obtain info
+
+
+# description = driver.find_element(By.XPATH, "//div[@class='block-content-wrap']/p")
+# price = driver.find_element(By.XPATH, "//li[@class='item-price']")
+# contact = driver.find_element(By.XPATH, "//ul[@class='list-unstyled contact-list']/li/a")
+
+# print(description.text)
+# print(price.text)
+# print(contact.text)
+
+###
+
+
+# print(driver.execute_script("return window.getComputedStyle(document.querySelector('a.1'),':before').getPropertyValue('content')").strip)
+# No me acuerdo que wea era esto, pero es un ejecutador de javascript
 
 #https://www.propiedadesarecheta.cl/propiedades/calle-manuel-tangacis/
 
