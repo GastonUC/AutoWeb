@@ -29,12 +29,12 @@ for x in range(links):
     print(f"URL: {input_links[x]}")
     driver.get(input_links[x])
 
-    name = driver.find_element(By.XPATH, "//h1[@class = 'entry-title single-property-title']")
-    price = driver.find_element(By.XPATH, "//span[@class = 'single-property-price price']")
     descripcion = driver.find_element(By.XPATH, "//div[@class = 'property-content']/p")
+    price = driver.find_element(By.XPATH, "//span[@class = 'single-property-price price']")
+    contact = driver.find_element(By.XPATH, "//div[@class = 'contact-number']/a")
 
     with open(f"{date}/Texto Casas {date}.txt", "a") as txt:
-        txt.write(f"Nombre: {name.text} \n Precio: {price.text} \n Descripción: {descripcion.text} \n\n")
+        txt.write(f"Descripción: {descripcion.text}\nPrecio: {price.text}\nContacto: {contact.text}\n\n")
 
     os.mkdir(f"{date}/Propiedad {str(x+1)}")
 
