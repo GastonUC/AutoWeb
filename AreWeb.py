@@ -12,63 +12,56 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Safari()
-driver.get(input("Write URL: "))
+# driver.get(input("Write URL: "))
 
 # Counter for total images
-def Image_counter():
-    img = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']")
-    Img_count = len(img)
-    return Img_count
+# def Image_counter():
+#     img = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']")
+#     Img_count = len(img)
+#     return Img_count
+# print(Image_counter())
 
-print(Image_counter())
+date = datetime.datetime.now().strftime("%d.%m.%y")
+os.mkdir(f"{date}")
+open(f"{date}/Texto Casas {date}.txt", "x")
 
-name = driver.find_element(By.XPATH, "//div[@class='page-title']/h1")
+input_links = list(map(str, input("Ingrese las url: ").split()))
+links = len(input_links)
+for x in range(links):
+    print(f"URL: {input_links[x]}")
+    driver.get(input_links[x])
 
-url = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a/img")
-inc = 0
-try:
-    for y in url:
-        link = y.get_attribute("data-src")
-        inc += 1
+    ### Section to obtain info
+    description = driver.find_element(By.XPATH, "//div[@class='block-content-wrap']/p") #sometimes the program can found multiple 'p', so the program will return error
+    price = driver.find_element(By.XPATH, "//li[@class='item-price']")
+    contact = driver.find_element(By.XPATH, "//ul[@class='list-unstyled contact-list']/li/a")
+    name = driver.find_element(By.XPATH, "//div[@class='page-title']/h1")
 
-        response = requests.get(link).content
-        #Header is mandatory here because the page won't allow to do more than one request for anonymous authentication. So insted, here i pass a Default MDN string.
-        # response = requests.get(link, headers={"User-Agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}).content
-        file = open(f"{name.text} {inc}.jpg", "wb")
-        file.write(response)
-        file.close
-        print(f"url: {link}")
-except Exception as e:
-    print("Error obteniendo url de imagenes")
-    driver.quit()
+    with open(f"{date}/Texto Casas {date}.txt", "a") as txt:
+        txt.write(f"Descripción: {description.text}\nPrecio: {price.text}\nContacto: {contact.text}\n\n")
 
+    os.mkdir(f"{date}/Propiedad {str(x+1)}")
 
-# url = driver.find_element(By.XPATH, "//a[@class='houzez-trigger-popup-slider-js swipebox hover-effect']").get_attribute("data-toggle¿")
-# url1 = driver.find_element(By.XPATH, "//a[@data-slider-no='1']/img")
-# url1.value_of_css_property("src")
-# print(url)
+    url = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a/img")
+    inc = 0
+    try:
+        for y in url:
+            link = y.get_attribute("data-src")
+            inc += 1
 
-# time to wait
-# Pop-up_eraser = driver.find_elements(By.XPATH, "//i[@class='spu-icon spu-icon-close']")
-# Pop-up_eraser.click()
+            response = requests.get(link).content
+            #Header is mandatory here because the page won't allow to do more than one request for anonymous authentication. So insted, here i pass a Default MDN string.
+            # response = requests.get(link, headers={"User-Agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"}).content
+            file = open(f"{date}/Propiedad {str(x+1)}/{name.text} {inc}.jpg", "wb")
+            file.write(response)
+            file.close
+            print(f"Imágen {inc} guardada con éxito")
+    except Exception as e:
+        print("Error obteniendo url de imagenes")
+        driver.quit()
+    print("Finalizado con éxito!")
+driver.quit()
 
-
-### Section to obtain info
-
-
-# description = driver.find_element(By.XPATH, "//div[@class='block-content-wrap']/p")
-# price = driver.find_element(By.XPATH, "//li[@class='item-price']")
-# contact = driver.find_element(By.XPATH, "//ul[@class='list-unstyled contact-list']/li/a")
-
-# print(description.text)
-# print(price.text)
-# print(contact.text)
-
-###
-
-
-# print(driver.execute_script("return window.getComputedStyle(document.querySelector('a.1'),':before').getPropertyValue('content')").strip)
-# No me acuerdo que wea era esto, pero es un ejecutador de javascript
 
 #https://www.propiedadesarecheta.cl/propiedades/calle-manuel-tangacis/
 
@@ -121,4 +114,4 @@ except Exception as e:
 #         print(f"Error trying to get Images, {e}")
 #         driver.close()
 # print("Finalizado con éxito!")
-driver.quit()
+# driver.quit()
