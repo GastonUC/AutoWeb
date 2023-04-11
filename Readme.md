@@ -1,6 +1,8 @@
 # AutoWeb / AreWeb / RomaWeb
 Automatización Descarga de imágenes y obtención de datos de la página "Seminuevos"
 
+##Try puppeteer
+
 ### Pasos siguientes:
 * [ ] Crear funciones para poder manejar todo en "main.py".
 * [ ] Crear archivos separados incluyendo un "Main" para ejecución de ciclos, etc.
