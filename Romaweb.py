@@ -14,10 +14,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Safari()
 
-def Image_counter():
-    img = driver.find_elements(By.CLASS_NAME, "swipebox")
-    Img_count = len(img)
-    return Img_count + 1
+# def Image_counter():
+#     img = driver.find_elements(By.XPATH, "//li[@data-thumb-alt]/a")
+#     Img_count = len(img)
+#     return Img_count + 1
 
 date = datetime.datetime.now().strftime("%d.%m.%y")
 os.mkdir(f"{date}")
@@ -32,6 +32,7 @@ for x in range(links):
     descripcion = driver.find_element(By.XPATH, "//div[@class = 'property-content']/p")
     price = driver.find_element(By.XPATH, "//span[@class = 'single-property-price price']")
     contact = driver.find_element(By.XPATH, "//div[@class = 'contact-number']/a")
+    name = driver.find_element(By.XPATH, "//h1[@class = 'entry-title single-property-title']")
 
     with open(f"{date}/Texto Casas {date}.txt", "a") as txt:
         txt.write(f"Descripción: {descripcion.text}\nPrecio: {price.text}\nContacto: {contact.text}\n\n")
@@ -39,7 +40,7 @@ for x in range(links):
     os.mkdir(f"{date}/Propiedad {str(x+1)}")
 
     # for a in range(Image_counter()):
-    url = driver.find_elements(By.CLASS_NAME, "swipebox") #.get_attribute("href")
+    url = driver.find_elements(By.XPATH, "//li[@data-thumb-alt]/a") #.get_attribute("href")
     inc = 0
     try:
         for y in url:
