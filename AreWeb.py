@@ -36,13 +36,18 @@ for x in range(links):
     price = driver.find_element(By.XPATH, "//li[@class='item-price']")
     contact = driver.find_element(By.XPATH, "//ul[@class='list-unstyled contact-list']/li/a")
     name = driver.find_element(By.XPATH, "//div[@class='page-title']/h1")
+    # sector = driver.find_element(By.XPATH, "//a[@class='hz-label label label-color-144']").get_attribute("innerText")
+    sector = driver.find_element(By.XPATH, "//div[@class='container']/a[2]")
 
     with open(f"{date}/Texto Casas {date}.txt", "a") as txt:
-        txt.write(f"Descripción: {description.text}\nPrecio: {price.text}\nContacto: {contact.text}\n\n")
+        txt.write(f"Descripción: {description.text}\nPrecio: {price.text}\nContacto: {contact.text}\n{sector.text}\n\n")
 
     os.mkdir(f"{date}/Propiedad {str(x+1)}")
 
-    url = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a/img")
+    # url = driver.find_elements(By.XPATH, "//div[@class='col-md-3 col-sm-6']/a/img")
+    activeImg = driver.find_element(By.XPATH, "//div[@class='slick-slide slick-current slick-active']/img")
+    url = driver.find_elements(By.XPATH, "//div[@class='slick-slide']/img")
+    url.append(activeImg)
     inc = 0
     try:
         for y in url:
@@ -62,6 +67,10 @@ for x in range(links):
     print("Finalizado con éxito!")
 driver.quit()
 
+#Sector = "document.querySelector('div[class="container"] > a').nextSibling.innerText"
+#Sector2 = "document.querySelector('a[class="hz-label label label-color-144"]').innerText"
+#activeImg = "document.querySelector('div[class="slick-slide slick-current slick-active"] > img')"
+#carrouselImg = "document.querySelectorAll('div[class="slick-slide"] > img')"
 
 #https://www.propiedadesarecheta.cl/propiedades/calle-manuel-tangacis/
 
