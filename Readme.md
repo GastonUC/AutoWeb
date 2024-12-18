@@ -1,6 +1,6 @@
 # AutoWeb / AreWeb / RomaWeb
 
-##Try puppeteer
+<!-- Try puppeteer -->
 
 ### Pasos siguientes:
 * [ ] Crear funciones para poder manejar todo en "main.py".
@@ -23,7 +23,7 @@
 - Para realizar el archivo que contenga toda la lógica tras la descarga, se puede realizar un diccionario que contenga el nombre de las páginas, ya sea (Arecheta, Roma o Seminuevos), junto al PATH indicado para la acción necesitada.
 - ~~"import urllib" Para descargas de links~~ (Outdated)
 - ~~Para clicks en background: https://forum.uipath.com/t/can-we-have-web-automation-working-in-background/122402/2~~ (Outdated)
-
+<!--
 ## Listado para Testear
 
 * http://seminuevosmag.cl/car/chevrolet/
@@ -44,9 +44,9 @@ http://seminuevosmag.cl/car/hyundai-2019/
 
 http://seminuevosmag.cl/car/chevrolet/ http://seminuevosmag.cl/car/mazda-2015/ http://seminuevosmag.cl/car/nissan-2018/ http://seminuevosmag.cl/car/hyundai-2014/ http://seminuevosmag.cl/car/ssangyong-2017/ http://seminuevosmag.cl/car/hyundai-2019/
 
-https://romapropiedades.cl/property/inmueble-central/ https://romapropiedades.cl/property/sector-las-cumbres-km-10-norte-poniente/ https://romapropiedades.cl/property/inmueble-sector-norte-pobl-mauricio-braun/ https://romapropiedades.cl/property/sitio-y-tres-cabanas-sector-sur/ https://romapropiedades.cl/property/sector-sur-portal-del-sur/ https://romapropiedades.cl/property/sitio-de-en-1300m2-prolongacion-mardones/ https://romapropiedades.cl/property/propiedad-ubicada-en-brisas-de-agostini/ https://romapropiedades.cl/property/parcela-sector-sur-poniente/ https://romapropiedades.cl/property/parcela-de-8400m2-ojo-bueno/ https://romapropiedades.cl/property/inmueble-sector-sur-poniente/
+https://romapropiedades.cl/property/inmueble-central/ https://romapropiedades.cl/property/sector-las-cumbres-km-10-norte-poniente/ https://romapropiedades.cl/property/inmueble-sector-norte-pobl-mauricio-braun/ https://romapropiedades.cl/property/sitio-y-tres-cabanas-sector-sur/ https://romapropiedades.cl/property/sector-sur-portal-del-sur/ https://romapropiedades.cl/property/sitio-de-en-1300m2-prolongacion-mardones/ https://romapropiedades.cl/property/propiedad-ubicada-en-brisas-de-agostini/ https://romapropiedades.cl/property/parcela-sector-sur-poniente/ https://romapropiedades.cl/property/parcela-de-8400m2-ojo-bueno/ https://romapropiedades.cl/property/inmueble-sector-sur-poniente/ -->
 
-Structure
+<!-- Structure -->
 <!-- import os
 import io
 import time
